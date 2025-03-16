@@ -1,0 +1,65 @@
+/*module ALU using case statement takes less utilization of LUT's  and reduced code compared to module ALU using if_else statements hence i prefered to use case statements*/
+
+
+
+
+module ALU(input [3:0] a,b,input [2:0] f,output reg [3:0] y);
+always @(a,b,f)
+begin 
+case(f)
+3'b001 : y=a+b;
+3'b010 : y=a-b;
+3'b011 : y=a&b;
+3'b100 : y=a|b;
+3'b101 : y=~a; 
+default : y=4'hz;
+endcase
+end
+endmodule
+
+
+/*module ALU(input [3:0] a,b,input[2:0] f,output reg [3:0] y);
+always @(a,b,f) begin 
+ if(f==3'b001) begin
+ y=a+b;
+ end
+ else if(f==3'b010)begin
+ y=a-b;
+ end
+ else if(f==3'b011) begin
+ y=a&b;
+ end
+ else if(f==3'b100) begin
+ y=a|b;
+ end
+ else if(f==3'b101) begin
+ y=~a;
+ end
+ else 
+ y=1'bz;
+ end
+ endmodule*/
+
+
+/* test bench code for module Alu*/
+
+module ALU_tb();
+reg [3:0] a,b;
+reg [2:0] f;
+wire [3:0] y;
+ALU a1(a,b,f,y);
+initial
+begin
+f=3'b000; a=4'b0000; b=4'b0000;
+end
+always
+begin
+$monitor($time,"f=%b,a=%b,b=%b,y=%b",f,a,b,y);
+#2 f=3'b001;a=4'b0011;b=4'b0001;
+#2 f=3'b010;a=4'b1010;b=4'b1000;
+#2 f=3'b011;a=4'b1100;b=4'b0101;
+#2 f=3'b100;a=4'b1100;b=4'b1101;
+#2 f=3'b101;a=1010;
+end
+initial #50 $stop;
+endmodule
