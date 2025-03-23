@@ -71,4 +71,8 @@ The ALU is controlled by a 3-bit function selector (f), which determines the ope
 - **Default Case (f other than the defined values)**:
   - In case the function selector `f` is not one of the defined values, the output y is set to high impedance (4'hz). This is a common practice in digital designs to ensure that unused or invalid states do not interfere with the rest of the circuit.
   - Formula: y = 4'hz.
+ 
+- OUTPUT OF THE TASK:
+- ![Uploading ALU_OUTPUT.png…]()
+
 
