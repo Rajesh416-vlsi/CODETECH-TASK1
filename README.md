@@ -73,6 +73,7 @@ The ALU is controlled by a 3-bit function selector (f), which determines the ope
   - Formula: y = 4'hz.
  
 - OUTPUT OF THE TASK:
-- ![Uploading ALU_OUTPUT.png…]()
+- ![ALU_OUTPUT](https://github.com/user-attachments/assets/f7828959-b5ee-4824-89f6-96a8fa996f82)
+
 
 
